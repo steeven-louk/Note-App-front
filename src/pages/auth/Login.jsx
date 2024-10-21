@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/ContextProvider';
 
 const formSchema = z.object({
   email: z
@@ -13,9 +14,12 @@ const formSchema = z.object({
     .string()
     .min(6, { message: "Password must be at least 6 characters long." }),
 });
+
 const Login = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const {login} = useAuth()
+
 const form = useForm({
   resolver: zodResolver(formSchema),
   defaultValues: {
@@ -32,7 +36,8 @@ async function onSubmit(values) {
       })
       console.log("userrr", user);
       if(user.status === 200){
-        localStorage.setItem("token", JSON.parse(user.data.token))
+        login(user.data.username);
+        localStorage.setItem("token", JSON.stringify(user.data.token))
         navigate("/")
       }
     } catch (error) {
