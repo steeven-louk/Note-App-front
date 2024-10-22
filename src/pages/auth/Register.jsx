@@ -47,8 +47,8 @@ return (
   <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <div className="w-[350px] bg-white shadow-md rounded-md p-6">
       <div className="mb-4">
-        <h2 className="text-2xl font-semibold">Login</h2>
-        <p className="text-gray-600">Enter your email and password to login.</p>
+        <h2 className="text-2xl font-bold text-black mb-2">Register</h2>
+        <p className="text-gray-600">Enter your username, email and password to register.</p>
       </div>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
       <div>
@@ -110,9 +110,9 @@ return (
       )}
 
       <div className="mt-4 text-center">
-        <p className="text-sm text-dark">
+        <p className="text-sm text-black">
           you have an account?{" "}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-blue-500 font-bold hover:underline">
             Login
           </Link>
         </p>

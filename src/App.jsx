@@ -4,8 +4,10 @@ import './App.css'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import Home from './pages/Home'
-// import {r} from "react-router-dom"
+
 function App() {
+
+
 
   return (
     <>
